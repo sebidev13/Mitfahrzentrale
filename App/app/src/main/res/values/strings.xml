@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Mitfahrzentrale</string>
+
+    <!-- Login -->
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Registrieren</string>
+
+    <!-- Navbar -->
+    <string name="route_nav">Routen</string>
+    <string name="drive_nav">Meine Fahrten</string>
+    <string name="saved_nav">Gespeichert</string>
+    <string name="settings_nav">Einstellungen</string>
+
 </resources>

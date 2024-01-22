@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="@string/route_nav"
+        android:id="@+id/route"
+        android:icon="@drawable/baseline_route_24"/>
+    <item
+        android:title="@string/drive_nav"
+        android:id="@+id/drive"
+        android:icon="@drawable/baseline_add_location_alt_24"/>
+    <item
+        android:title="@string/saved_nav"
+        android:id="@+id/saved"
+        android:icon="@drawable/outline_bookmark_24"/>
+    <item
+        android:title="@string/settings_nav"
+        android:id="@+id/settings"
+        android:icon="@drawable/settings_24"/>
+</menu>
