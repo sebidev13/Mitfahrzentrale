@@ -26,5 +26,7 @@ class LoginActivity : AppCompatActivity() {
             intent.data = Uri.parse(url)
             startActivity(intent)
         }
+
+
     }
 }
