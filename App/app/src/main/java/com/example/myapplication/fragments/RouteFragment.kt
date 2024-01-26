@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.adapters.NewRouteAdapter
-import com.example.myapplication.adapters.RouteAdapter
 import com.example.myapplication.models.Supplier
 
 class RouteFragment : Fragment() {

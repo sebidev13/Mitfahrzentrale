@@ -28,7 +28,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="start"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -39,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="destination"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -50,7 +48,6 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:src="@drawable/message_24"/>
-            <!-- outline_bookmark_border_24 -->
         </LinearLayout>
 
         <LinearLayout
@@ -64,7 +61,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="start time"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -75,7 +71,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="destination time"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -99,7 +94,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="driver"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>

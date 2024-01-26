@@ -23,5 +23,12 @@
     <string name="location_hint">Postleitzahl</string>
 
     <!-- Requests -->
+    <string name="request_from">Angefragt von: </string>
 
+    <!-- Driver -->
+    <string name="start_hint">Start</string>
+    <string name="destination_hint">Ziel</string>
+    <string name="starttime_hint">Abfahrt</string>
+    <string name="destinationtime_hint">Ankunft</string>
+    <string name="new_ride">Fahrt erstellen</string>
 </resources>

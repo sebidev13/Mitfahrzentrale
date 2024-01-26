@@ -16,14 +16,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Start"
+                    android:hint="@string/start_hint"
                     android:layout_margin="5dp"/>
 
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Ziel"
+                    android:hint="@string/destination_hint"
                     android:layout_margin="5dp"/>
         </LinearLayout>
 
@@ -35,13 +35,13 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Abfahrt"
+                    android:text="@string/starttime_hint"
                     android:layout_margin="5dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Ankunft"
+                    android:text="@string/destinationtime_hint"
                     android:layout_margin="5dp"/>
         </LinearLayout>
 
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Fahrt erstellen"/>
+        android:text="@string/new_ride"/>
 
     <ListView
         android:id="@+id/listView"

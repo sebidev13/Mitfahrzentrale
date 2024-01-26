@@ -28,7 +28,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="start"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -39,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="destination"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -63,7 +61,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="start time"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -74,7 +71,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="destination time"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -97,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="Angefragt von: "
+                android:text="@string/request_from"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -108,7 +104,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="passenger"
                 android:textColor="#616161"
                 android:textSize="18sp"
                 android:textStyle="bold"/>

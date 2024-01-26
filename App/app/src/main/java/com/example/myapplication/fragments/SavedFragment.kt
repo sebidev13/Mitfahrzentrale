@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.adapters.RouteAdapter
+import com.example.myapplication.adapters.RequestAdapter
+import com.example.myapplication.adapters.SavedAdapter
+//import com.example.myapplication.adapters.RouteAdapter
 import com.example.myapplication.models.Supplier
 
 class SavedFragment : Fragment() {
@@ -24,27 +27,39 @@ class SavedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_saved, container, false)
+        return inflater.inflate(
+            R.layout.fragment_saved,
+            container,
+            false)
 
         // Set up the RecyclerView
-        setupRecyclerView(view)
+        //setupRecyclerView(view)
 
-        return view
+        //return view
     }
 
-    private fun setupRecyclerView(viewx: View) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val layoutManager = LinearLayoutManager(requireContext())
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        val listView : ListView = view.findViewById(R.id.listView)
 
-        val adapter = RouteAdapter(requireContext(), Supplier.routes)
+        val requests = Supplier.routes
 
-        var recycView: RecyclerView? = viewx.findViewById(R.id.savedRecyView)
-        recycView?.let {
-            recycView.adapter = adapter
-            recycView.layoutManager = layoutManager
-        }
+        var requestAdapter = SavedAdapter(requireContext(), requests)
+        listView.adapter = requestAdapter
     }
 
+    /* private fun setupRecyclerView(viewx: View) {
 
+
+         val layoutManager = LinearLayoutManager(requireContext())
+         layoutManager.orientation = LinearLayoutManager.VERTICAL
+
+         val adapter = SavedAdapter(requireContext(), Supplier.routes)
+
+         var recycView: RecyclerView? = viewx.findViewById(R.id.savedRecyView)
+         recycView?.let {
+             recycView.adapter = adapter
+             recycView.layoutManager = layoutManager
+        }*/
 }

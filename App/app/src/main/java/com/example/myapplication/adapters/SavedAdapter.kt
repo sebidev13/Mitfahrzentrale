@@ -9,19 +9,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.myapplication.R
 import com.example.myapplication.models.MyRides
+import com.example.myapplication.models.Route
 
-class MyRidesAdapter(
+class SavedAdapter (
     val context: Context,
-    val myRides: List<MyRides>): BaseAdapter() {
+    val savedRoutes: List<Route>): BaseAdapter() {
     override fun getCount(): Int {
-        return myRides.size
+        return savedRoutes.size
     }
+
     override fun getItem(position: Int): Any {
-        return myRides[position]
+        return savedRoutes[position]
     }
+
     override fun getItemId(position: Int): Long {
         return position.toLong()
     }
+
     override fun getView(
         position: Int,
         convertView: View?,
@@ -33,27 +37,30 @@ class MyRidesAdapter(
 
         if (convertView == null){
             view = inflater.inflate(
-                R.layout.myrides_list_item,
+                R.layout.saved_list_item,
                 parent,
                 false)
         }else {
             view = convertView
         }
 
-        val item = getItem(position) as MyRides
+        val item = getItem(position) as Route
 
         val startPoint: TextView = view.findViewById(R.id.startPoint)
         val destinationPoint: TextView = view.findViewById(R.id.destinationPoint)
-        val deleteBtn: ImageView = view.findViewById(R.id.deleteBtn)
+        val saveRouteBtn: ImageView = view.findViewById(R.id.saveRouteBtn)
 
         val startTime: TextView = view.findViewById(R.id.startTime)
         val destinationTime: TextView = view.findViewById(R.id.destinationTime)
+
+        val driver: TextView = view.findViewById(R.id.driverTV)
 
         item?.let {
             startPoint.text = item.start_point
             destinationPoint.text = item.destination
             startTime.text = item.start_time
             destinationTime.text = item.destination_time
+            driver.text = item.driver
         }
         return view
     }
