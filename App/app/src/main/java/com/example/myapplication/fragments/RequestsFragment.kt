@@ -1,17 +1,18 @@
 package com.example.myapplication.fragments
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
-import androidx.fragment.app.Fragment
 import com.example.myapplication.R
-import com.example.myapplication.adapters.MyRidesAdapter
 import com.example.myapplication.adapters.NewRouteAdapter
+import com.example.myapplication.adapters.RequestAdapter
 import com.example.myapplication.models.Supplier
 
-class DriverFragment : Fragment() {
+
+class RequestsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,7 @@ class DriverFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_driver, container, false)
+        return inflater.inflate(R.layout.fragment_requests, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,11 +32,9 @@ class DriverFragment : Fragment() {
 
         val listView : ListView = view.findViewById(R.id.listView)
 
-        val myrides = Supplier.myRides
+        val requests = Supplier.requestMsg
 
-        var ridesAdapter = MyRidesAdapter(requireContext(), myrides)
-        listView.adapter = ridesAdapter
+        var requestAdapter = RequestAdapter(requireContext(), requests)
+        listView.adapter = requestAdapter
     }
-
-
 }

@@ -10,6 +10,7 @@
     <string name="drive_nav">Meine Fahrten</string>
     <string name="saved_nav">Gespeichert</string>
     <string name="settings_nav">Einstellungen</string>
+    <string name="request_nav">Anfragen</string>
 
     <!-- Einstellungen -->
     <string name="logout">Abmelden</string>
@@ -18,8 +19,9 @@
     <string name="user_placeholder">Benutzername</string>
     <string name="pwd_placeholder">Login</string>
 
+    <!-- Routen -->
+    <string name="location_hint">Postleitzahl</string>
 
-
-
+    <!-- Requests -->
 
 </resources>

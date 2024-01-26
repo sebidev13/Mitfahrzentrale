@@ -14,6 +14,10 @@
         android:id="@+id/saved"
         android:icon="@drawable/outline_bookmark_24"/>
     <item
+        android:title="@string/request_nav"
+        android:id="@+id/request"
+        android:icon="@drawable/message_24"/>
+    <item
         android:title="@string/settings_nav"
         android:id="@+id/settings"
         android:icon="@drawable/settings_24"/>

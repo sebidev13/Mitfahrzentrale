@@ -6,11 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".fragments.SavedFragment">
 
-    <TextView
+    <EditText
+        android:id="@+id/locationFilter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Saved Fragment"
-        android:textSize="26dp"
-        android:layout_gravity="center"/>
+        android:hint="@string/location_hint"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/savedRecyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </FrameLayout>
