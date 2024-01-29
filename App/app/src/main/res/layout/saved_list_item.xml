@@ -43,11 +43,11 @@
                 android:textStyle="bold"/>
 
             <ImageView
-                android:id="@+id/saveRouteBtn"
+                android:id="@+id/driveRequestBtn"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:src="@drawable/outline_bookmark_24"/>
+                android:src="@drawable/message_24"/>
         </LinearLayout>
 
         <LinearLayout
@@ -75,6 +75,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
+            <ImageView
+                android:id="@+id/saveRouteBtn"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/outline_bookmark_24"/>
         </LinearLayout>
 
         <LinearLayout

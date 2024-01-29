@@ -32,12 +32,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
                 <Button
+                    android:id="@+id/startBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/starttime_hint"
                     android:layout_margin="5dp"/>
                 <Button
+                    android:id="@+id/endButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -46,10 +48,34 @@
         </LinearLayout>
 
     <Button
+        android:id="@+id/createBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:text="@string/new_ride"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_rides"
+        android:layout_marginTop="5dp"
+        android:textColor="#616161"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <ListView
+        android:id="@+id/requestListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/approved_rides"
+        android:layout_marginTop="5dp"
+        android:textColor="#616161"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
 
     <ListView
         android:id="@+id/listView"

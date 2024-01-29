@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
+
+        replaceFragment(DriverFragment())
+
         bottomNavigationView.setOnItemSelectedListener {
 
             when(it.itemId){

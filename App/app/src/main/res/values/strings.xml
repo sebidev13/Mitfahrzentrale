@@ -31,4 +31,6 @@
     <string name="starttime_hint">Abfahrt</string>
     <string name="destinationtime_hint">Ankunft</string>
     <string name="new_ride">Fahrt erstellen</string>
+    <string name="my_rides">Eigene Fahrten</string>
+    <string name="approved_rides">Mitfahrten</string>
 </resources>
