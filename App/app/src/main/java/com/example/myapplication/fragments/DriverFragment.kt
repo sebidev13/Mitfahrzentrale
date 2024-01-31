@@ -2,18 +2,27 @@ package com.example.myapplication.fragments
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ListView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.myapplication.Constants
+import com.example.myapplication.HelperClass
+import com.example.myapplication.HelperClass.StringHelper.checkStringAndShowToast
 import com.example.myapplication.R
+import com.example.myapplication.REST.RetrofitClient
+import com.example.myapplication.activities.MainActivity
 import com.example.myapplication.adapters.MyRidesAdapter
 //import com.example.myapplication. databinding.ActivityMainBinding
 import com.example.myapplication.adapters.NewRouteAdapter
+import com.example.myapplication.models.Route
 import com.example.myapplication.models.Supplier
 
 class DriverFragment : Fragment() {
@@ -44,10 +53,41 @@ class DriverFragment : Fragment() {
         startBtn.setOnClickListener{ setDate(startBtn) }
         endBtn.setOnClickListener{ setDate(endBtn) }
 
+        createBtn.setOnClickListener{
+
+            val startET : EditText= view.findViewById(R.id.startET)
+            val destinationET : EditText = view.findViewById(R.id.destinationET)
+
+            val destinationPoint : String = destinationET.text.toString()
+            val startPoint : String = startET.text.toString()
+            val startTime: String = startBtn.text.toString()
+            val endTime : String = endBtn.text.toString()
+
+            val route : com.example.myapplication.REST.Route = com.example.myapplication.REST.Route(0,"","","", "",0, "")
+
+            requireContext().checkStringAndShowToast( destinationPoint,"Ziel") { validString -> route.destination = destinationPoint }
+            requireContext().checkStringAndShowToast( startPoint,"Start") { validString -> route.start_point = startPoint }
+            requireContext().checkStringAndShowToast( startTime,"Start-Zeit") { validString -> route.start_time = startTime }
+            requireContext().checkStringAndShowToast( endTime,"End-Zeit") { validString -> route.destination_time = endTime }
+
+            //TODO: REST umsetzen
+            val call = RetrofitClient.apiService.createRoute(route)
+
+            HelperClass.ApiHelper.getApiResponse(call,
+                onSuccess = { response ->
+                    //TODO: Erstellte Fahrt in Liste hinzufügen bzw Liste neu holen
+                },
+                onFailure = { t ->
+                    Toast.makeText(requireContext(), t.localizedMessage, Toast.LENGTH_LONG ).show()
+                }
+            )
+        }
+
         val listView : ListView = view.findViewById(R.id.listView)
 
         val myrides = Supplier.myRides
 
+        //TODO: REST für Liste
         var ridesAdapter = MyRidesAdapter(requireContext(), myrides)
         listView.adapter = ridesAdapter
     }
