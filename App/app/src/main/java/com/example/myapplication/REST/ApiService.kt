@@ -25,17 +25,20 @@ interface ApiService {
     @DELETE(API_EP + ROUTE_EP + "/{id}")
     fun deleteRoute(@Path("id") id: Int): Call<Route>
 
+    @GET(API_EP + ROUTE_EP )
+    fun getAllRoutes(): Call<List<Route>>
+
     @GET(API_EP + ROUTE_EP + CREATED_ROUTE_EP + "/{driver_id}")
-    fun getCreatedRoutes(@Path("driver_id") driver_id: Int): Call<Route>
+    fun getCreatedRoutes(@Path("driver_id") driver_id: Int): Call<List<Route>>
 
     @GET(API_EP + ROUTE_EP + SAVED_ROUTE_EP + "/{user_id}")
-    fun getSavedRoutes(@Path("user_id") user_id: Int): Call<Route>
+    fun getSavedRoutes(@Path("user_id") user_id: Int): Call<List<Route>>
 
     //TODO: createSavedRoutes
     //TODO: deleteSavedRoutes
 
     @GET(API_EP + ROUTE_EP + ACCEPTED_ROUTE_EP + "/{passenger_id}")
-    fun getPassengerRoutes(@Path("passenger_id") passenger_id: Int): Call<Route>
+    fun getPassengerRoutes(@Path("passenger_id") passenger_id: Int): Call<List<Route>>
 
     //TODO: Bei delete route_id richtig ?
     @DELETE(API_EP + ROUTE_EP + ACCEPTED_ROUTE_EP + "/{route_id}")
@@ -57,10 +60,10 @@ interface ApiService {
 
     //REQUEST
     @GET(API_EP + REQUEST_EP + "/{driver_id}")
-    fun getRequest4Driver(@Path("driver_id") driver_id: Int) : Call<Request>
+    fun getRequest4Driver(@Path("driver_id") driver_id: Int) : Call<List<Request>>
 
     @GET(API_EP + REQUEST_EP + "/{passenger_id}")
-    fun getRequest4Passenger(@Path("passenger_id") passenger_id: Int) : Call<Request>
+    fun getRequest4Passenger(@Path("passenger_id") passenger_id: Int) : Call<List<Request>>
 
     @PUT(API_EP + REQUEST_EP + "/{request_id}")
     fun putRequest(@Path("request_id") request_id: Int): Call<Request>

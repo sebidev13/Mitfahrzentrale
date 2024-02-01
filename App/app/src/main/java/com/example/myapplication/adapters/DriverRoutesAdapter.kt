@@ -8,24 +8,21 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.myapplication.R
+import com.example.myapplication.REST.Route
 import com.example.myapplication.models.MyRides
-import com.example.myapplication.models.Route
 
-class SavedAdapter (
+class DriverRoutesAdapter(
     val context: Context,
-    val savedRoutes: List<com.example.myapplication.REST.Route>): BaseAdapter() {
+    val myRides: List<Route>): BaseAdapter() {
     override fun getCount(): Int {
-        return savedRoutes.size
+        return myRides.size
     }
-
     override fun getItem(position: Int): Any {
-        return savedRoutes[position]
+        return myRides[position]
     }
-
     override fun getItemId(position: Int): Long {
         return position.toLong()
     }
-
     override fun getView(
         position: Int,
         convertView: View?,
@@ -37,30 +34,27 @@ class SavedAdapter (
 
         if (convertView == null){
             view = inflater.inflate(
-                R.layout.saved_list_item,
+                R.layout.myrides_list_item,
                 parent,
                 false)
         }else {
             view = convertView
         }
 
-        val item = getItem(position) as Route
+        val item = getItem(position) as MyRides
 
         val startPoint: TextView = view.findViewById(R.id.startPoint)
         val destinationPoint: TextView = view.findViewById(R.id.destinationPoint)
-        val saveRouteBtn: ImageView = view.findViewById(R.id.saveRouteBtn)
+        val deleteBtn: ImageView = view.findViewById(R.id.deleteBtn)
 
         val startTime: TextView = view.findViewById(R.id.startTime)
         val destinationTime: TextView = view.findViewById(R.id.destinationTime)
-
-        val driver: TextView = view.findViewById(R.id.driverTV)
 
         item?.let {
             startPoint.text = item.start_point
             destinationPoint.text = item.destination
             startTime.text = item.start_time
             destinationTime.text = item.destination_time
-            driver.text = item.driver
         }
         return view
     }

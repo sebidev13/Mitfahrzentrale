@@ -26,21 +26,20 @@ class LoginActivity : AppCompatActivity() {
         val login_btn = findViewById<Button>(R.id.login)
 
         login_btn.setOnClickListener{
-           /* val call = RetrofitClient.apiService.getUserByName(user_txt)
+           val call = RetrofitClient.apiService.getUserByName(user_txt)
 
             HelperClass.ApiHelper.getApiResponse(call,
                 onSuccess = { response ->
-                    if(response.username.equals(user_txt)
-                        && response.password.equals(pwd_txt)){
-                        Constants.CURRENT_USER = response */
+                    if(response.username.equals(user_txt) && response.password.equals(pwd_txt)){
+                        Constants.CURRENT_USER = response
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
-                   /* }
+                    }
                 },
                 onFailure = { t ->
                     Toast.makeText(this@LoginActivity, t.localizedMessage, Toast.LENGTH_LONG ).show()
                 }
-            ) */
+            )
         }
 
         val register_btn = findViewById<Button>(R.id.register)

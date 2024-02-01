@@ -8,12 +8,14 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.myapplication.R
+import com.example.myapplication.REST.Request
+import com.example.myapplication.REST.Route
 import com.example.myapplication.models.RequestMsg
-import com.example.myapplication.models.Route
 
 class RequestAdapter(
     val context: Context,
-    val requestMsg:List<RequestMsg>): BaseAdapter() {
+    val requestMsg: MutableList<Request>
+): BaseAdapter() {
     override fun getCount(): Int {
         return requestMsg.size
     }

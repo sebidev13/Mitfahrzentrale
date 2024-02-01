@@ -4,43 +4,52 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ListView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.Constants
+import com.example.myapplication.HelperClass
 import com.example.myapplication.R
-import com.example.myapplication.adapters.NewRouteAdapter
-import com.example.myapplication.models.Supplier
+import com.example.myapplication.REST.RetrofitClient
+import com.example.myapplication.adapters.PassengerRouteAdapter
+import com.example.myapplication.adapters.RequestAdapter
 
 class RouteFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.fragment_route)
 
-        //val listView : ListView = findViewById(R.id.listView)
-
-        //val routes = Supplier.routes
-
-        //var routeAdapter = NewRouteAdapter ( this, routes)
-        //listView.adapter = routeAdapter
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_route, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val listView : ListView = view.findViewById(R.id.listView)
+        var routes : MutableList<com.example.myapplication.REST.Route> = mutableListOf()
+        val routeListView : ListView = view.findViewById(R.id.listView)
+        var routeAdapter : PassengerRouteAdapter
 
-        val routes = Supplier.routes
+        val requestCall = RetrofitClient.apiService.getAllRoutes()
 
-        var routeAdapter = NewRouteAdapter(requireContext(), routes)
-        listView.adapter = routeAdapter
+        HelperClass.ApiHelper.getApiResponse(requestCall,
+            onSuccess = { response ->
+                routes = response.toMutableList()
+                routeAdapter = PassengerRouteAdapter(requireContext(), routes)
+                routeListView.adapter = routeAdapter
+            },
+            onFailure = { t ->
+                Toast.makeText(requireContext(), t.localizedMessage, Toast.LENGTH_LONG ).show()
+            }
+        )
+
+
+        //val routes = Supplier.routes
+
+        //var routeAdapter = NewRouteAdapter(requireContext(), routes)
+        //listView.adapter = routeAdapter
     }
 
    /* override fun onCreateView(

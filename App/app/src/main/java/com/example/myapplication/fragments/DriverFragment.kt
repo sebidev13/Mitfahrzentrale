@@ -17,11 +17,12 @@ import com.example.myapplication.Constants
 import com.example.myapplication.HelperClass
 import com.example.myapplication.HelperClass.StringHelper.checkStringAndShowToast
 import com.example.myapplication.R
+import com.example.myapplication.REST.ApiService
 import com.example.myapplication.REST.RetrofitClient
 import com.example.myapplication.activities.MainActivity
-import com.example.myapplication.adapters.MyRidesAdapter
+import com.example.myapplication.adapters.DriverRoutesAdapter
 //import com.example.myapplication. databinding.ActivityMainBinding
-import com.example.myapplication.adapters.NewRouteAdapter
+import com.example.myapplication.adapters.PassengerRouteAdapter
 import com.example.myapplication.models.Route
 import com.example.myapplication.models.Supplier
 
@@ -50,12 +51,49 @@ class DriverFragment : Fragment() {
         val endBtn : Button = view.findViewById(R.id.endButton)
         val createBtn : Button = view.findViewById(R.id.createBtn)
 
+
+        //val myrides = Supplier.myRides
+        //var ridesAdapter = MyRidesAdapter(requireContext(), myrides)
+        //listView.adapter = ridesAdapter
+
+        var driverRoutes : MutableList<com.example.myapplication.REST.Route> = mutableListOf()
+        var passengerRoutes : MutableList<com.example.myapplication.REST.Route> = mutableListOf()
+
+        var driverRouteAdapter : DriverRoutesAdapter
+
+        val driverListView : ListView = view.findViewById(R.id.driverListView)
+        val passengerListView : ListView = view.findViewById(R.id.passengerListView)
+
+        val driverCall = RetrofitClient.apiService.getCreatedRoutes(Constants.CURRENT_USER!!.id)
+        val passengerCall = RetrofitClient.apiService.getPassengerRoutes(Constants.CURRENT_USER!!.id)
+
+        HelperClass.ApiHelper.getApiResponse(driverCall,
+            onSuccess = { response ->
+                driverRoutes = response.toMutableList()
+                driverRouteAdapter = DriverRoutesAdapter(requireContext(), driverRoutes)
+                driverListView.adapter = driverRouteAdapter
+            },
+            onFailure = { t ->
+                Toast.makeText(requireContext(), t.localizedMessage, Toast.LENGTH_LONG ).show()
+            }
+        )
+
+        HelperClass.ApiHelper.getApiResponse(passengerCall,
+            onSuccess = { response ->
+                passengerRoutes = response.toMutableList()
+                var passengerRouteAdapter = PassengerRouteAdapter(requireContext(), passengerRoutes)
+                passengerListView.adapter = passengerRouteAdapter
+            },
+            onFailure = { t ->
+                Toast.makeText(requireContext(), t.localizedMessage, Toast.LENGTH_LONG ).show()
+            }
+        )
+
         startBtn.setOnClickListener{ setDate(startBtn) }
         endBtn.setOnClickListener{ setDate(endBtn) }
-
         createBtn.setOnClickListener{
 
-            val startET : EditText= view.findViewById(R.id.startET)
+            val startET : EditText = view.findViewById(R.id.startET)
             val destinationET : EditText = view.findViewById(R.id.destinationET)
 
             val destinationPoint : String = destinationET.text.toString()
@@ -70,26 +108,18 @@ class DriverFragment : Fragment() {
             requireContext().checkStringAndShowToast( startTime,"Start-Zeit") { validString -> route.start_time = startTime }
             requireContext().checkStringAndShowToast( endTime,"End-Zeit") { validString -> route.destination_time = endTime }
 
-            //TODO: REST umsetzen
             val call = RetrofitClient.apiService.createRoute(route)
 
             HelperClass.ApiHelper.getApiResponse(call,
                 onSuccess = { response ->
-                    //TODO: Erstellte Fahrt in Liste hinzufügen bzw Liste neu holen
+                    driverRoutes.add(response)
+                    //driverRouteAdapter.notifyDataSetChanged()
                 },
                 onFailure = { t ->
                     Toast.makeText(requireContext(), t.localizedMessage, Toast.LENGTH_LONG ).show()
                 }
             )
         }
-
-        val listView : ListView = view.findViewById(R.id.listView)
-
-        val myrides = Supplier.myRides
-
-        //TODO: REST für Liste
-        var ridesAdapter = MyRidesAdapter(requireContext(), myrides)
-        listView.adapter = ridesAdapter
     }
 
     private fun setDate(btn: Button){

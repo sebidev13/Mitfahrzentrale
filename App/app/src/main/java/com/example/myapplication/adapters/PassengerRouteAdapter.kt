@@ -8,37 +8,33 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.myapplication.R
-import com.example.myapplication.models.MyRides
 import com.example.myapplication.models.Route
 
-class SavedAdapter (
+class PassengerRouteAdapter(
     val context: Context,
-    val savedRoutes: List<com.example.myapplication.REST.Route>): BaseAdapter() {
+    val routes:List<com.example.myapplication.REST.Route>): BaseAdapter() {
     override fun getCount(): Int {
-        return savedRoutes.size
+        return routes.size
     }
 
     override fun getItem(position: Int): Any {
-        return savedRoutes[position]
+        return routes[position]
     }
 
     override fun getItemId(position: Int): Long {
         return position.toLong()
     }
 
-    override fun getView(
-        position: Int,
-        convertView: View?,
-        parent: ViewGroup?): View {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val inflater = context. getSystemService (
-            Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            Context. LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         val view: View
 
         if (convertView == null){
             view = inflater.inflate(
-                R.layout.saved_list_item,
-                parent,
+                R.layout.route_list_item,
+                parent ,
                 false)
         }else {
             view = convertView
@@ -48,10 +44,11 @@ class SavedAdapter (
 
         val startPoint: TextView = view.findViewById(R.id.startPoint)
         val destinationPoint: TextView = view.findViewById(R.id.destinationPoint)
-        val saveRouteBtn: ImageView = view.findViewById(R.id.saveRouteBtn)
+        val driveRequestBtn: ImageView = view.findViewById(R.id.driveRequestBtn)
 
         val startTime: TextView = view.findViewById(R.id.startTime)
         val destinationTime: TextView = view.findViewById(R.id.destinationTime)
+        val saveRouteBtn: ImageView = view.findViewById(R.id.saveRouteBtn)
 
         val driver: TextView = view.findViewById(R.id.driverTV)
 
