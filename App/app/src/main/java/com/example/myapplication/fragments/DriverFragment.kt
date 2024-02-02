@@ -67,6 +67,8 @@ class DriverFragment : Fragment() {
         val driverCall = RetrofitClient.apiService.getCreatedRoutes(Constants.CURRENT_USER!!.id)
         val passengerCall = RetrofitClient.apiService.getPassengerRoutes(Constants.CURRENT_USER!!.id)
 
+
+
         HelperClass.ApiHelper.getApiResponse(driverCall,
             onSuccess = { response ->
                 driverRoutes = response.toMutableList()

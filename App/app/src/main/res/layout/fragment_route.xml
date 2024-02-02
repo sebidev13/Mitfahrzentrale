@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.RouteFragment">
+    tools:context=".fragments.RouteFragment"
+    android:orientation="vertical"
+    android:background="@color/Background"
+    android:padding="5dp">
 
-    <EditText
-        android:id="@+id/locationFilter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/location_hint"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/locationFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/location_hint"
+            android:background="@color/Foreground2"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
-</FrameLayout>
+</LinearLayout>

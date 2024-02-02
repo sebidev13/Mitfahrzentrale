@@ -7,15 +7,18 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     android:layout_marginTop="5dp"
-    app:cardCornerRadius="5dp">
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="5dp"
+    android:background="@color/Foreground">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:baselineAligned="false"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:backgroundTint="@color/Foreground">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,9 +31,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:textColor="#616161"
+                android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:text="Test"/>
 
             <TextView
                 android:id="@+id/destinationPoint"
@@ -38,9 +42,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:textColor="#616161"
+                android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:text="Test"/>
 
             <ImageView
                 android:id="@+id/acceptBtn"
@@ -61,9 +66,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:textColor="#616161"
+                android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:text="Test"/>
 
             <TextView
                 android:id="@+id/destinationTime"
@@ -71,9 +77,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:textColor="#616161"
+                android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:text="Test"/>
 
             <ImageView
                 android:id="@+id/declineBtn"
@@ -94,7 +101,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:text="@string/request_from"
-                android:textColor="#616161"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
@@ -104,9 +111,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:textColor="#616161"
+                android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:text="Test"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="NavBar">#303241</color>
+    <color name="Background">#2E2E38</color>
+    <color name="Foreground">#31313B</color>
+    <color name="Button">#5299D5</color>
+    <color name="Foreground2">#35353F</color>
+    <color name="Green">#5F9D78</color>
+    <color name="Red">#C36B6A</color>
+    <color name="Blue">#7B98BA</color>
 </resources>
